@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "QmExjuqFvyQ3URL1Ux1YHm3jNW/Khg1XLvII47SJFyVKp5TAr59rGNq46xFoAfrYoFRXeN4zyf6BlPzByhKAxA==",
+  "success": true,
+  "projectFilePath": "D:\\clean-arch\\Contour.CleanArchitecture\\src\\Contour.CleanArchitecture.Core\\Contour.CleanArchitecture.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\anwaraam\\.nuget\\packages\\ardalis.guardclauses\\4.2.0\\ardalis.guardclauses.4.2.0.nupkg.sha512",
+    "C:\\Users\\anwaraam\\.nuget\\packages\\ardalis.result\\7.2.0\\ardalis.result.7.2.0.nupkg.sha512",
+    "C:\\Users\\anwaraam\\.nuget\\packages\\ardalis.sharedkernel\\1.4.0\\ardalis.sharedkernel.1.4.0.nupkg.sha512",
+    "C:\\Users\\anwaraam\\.nuget\\packages\\ardalis.smartenum\\7.0.0\\ardalis.smartenum.7.0.0.nupkg.sha512",
+    "C:\\Users\\anwaraam\\.nuget\\packages\\ardalis.specification\\8.0.0\\ardalis.specification.8.0.0.nupkg.sha512",
+    "C:\\Users\\anwaraam\\.nuget\\packages\\autofac\\7.1.0\\autofac.7.1.0.nupkg.sha512",
+    "C:\\Users\\anwaraam\\.nuget\\packages\\mediatr\\12.2.0\\mediatr.12.2.0.nupkg.sha512",
+    "C:\\Users\\anwaraam\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\anwaraam\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\anwaraam\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\anwaraam\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512",
+    "C:\\Users\\anwaraam\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
+    "C:\\Users\\anwaraam\\.nuget\\packages\\system.text.json\\7.0.3\\system.text.json.7.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

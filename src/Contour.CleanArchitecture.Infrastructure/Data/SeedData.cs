@@ -1,0 +1,37 @@
+﻿using Contour.CleanArchitecture.Core.ContributorAggregate;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace Contour.CleanArchitecture.Infrastructure.Data;
+
+public static class SeedData
+{
+  public static readonly Contributor Contributor1 = new("Aamir");
+  public static readonly Contributor Contributor2 = new("Sami");
+
+  public static void Initialize(IServiceProvider serviceProvider)
+  {
+    using var dbContext = new AppDbContext(
+        serviceProvider.GetRequiredService<DbContextOptions<AppDbContext>>(), null);
+    // Look for any Contributors.
+    if (dbContext.Contributors.Any())
+    {
+      return;   // DB has been seeded
+    }
+
+    PopulateTestData(dbContext);
+  }
+  public static void PopulateTestData(AppDbContext dbContext)
+  {
+    foreach (var item in dbContext.Contributors)
+    {
+      dbContext.Remove(item);
+    }
+    dbContext.SaveChanges();
+
+    dbContext.Contributors.Add(Contributor1);
+    dbContext.Contributors.Add(Contributor2);
+
+    dbContext.SaveChanges();
+  }
+}
