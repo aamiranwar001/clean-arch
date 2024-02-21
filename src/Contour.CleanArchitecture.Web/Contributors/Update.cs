@@ -1,8 +1,5 @@
-﻿using Contour.CleanArchitecture.Core.ContributorAggregate;
-using Ardalis.SharedKernel;
-using FastEndpoints;
+﻿using FastEndpoints;
 using Contour.CleanArchitecture.Web.Endpoints.ContributorEndpoints;
-using Contour.CleanArchitecture.UseCases.Contributors.Create;
 using Contour.CleanArchitecture.UseCases.Contributors.Update;
 using MediatR;
 using Ardalis.Result;
@@ -17,8 +14,7 @@ namespace Contour.CleanArchitecture.Web.ContributorEndpoints;
 /// Update an existing Contributor by providing a fully defined replacement set of values.
 /// See: https://stackoverflow.com/questions/60761955/rest-update-best-practice-put-collection-id-without-id-in-body-vs-put-collecti
 /// </remarks>
-public class Update(IMediator _mediator)
-  : Endpoint<UpdateContributorRequest, UpdateContributorResponse>
+public class Update(IMediator mediator) : Endpoint<UpdateContributorRequest, UpdateContributorResponse>
 {
   public override void Configure()
   {
@@ -26,25 +22,23 @@ public class Update(IMediator _mediator)
     AllowAnonymous();
   }
 
-  public override async Task HandleAsync(
-    UpdateContributorRequest request,
-    CancellationToken cancellationToken)
+  public override async Task HandleAsync(UpdateContributorRequest request, CancellationToken ct)
   {
-    var result = await _mediator.Send(new UpdateContributorCommand(request.Id, request.Name!));
+    var result = await mediator.Send(new UpdateContributorCommand(request.Id, request.Name!), ct);
 
     if (result.Status == ResultStatus.NotFound)
     {
-      await SendNotFoundAsync(cancellationToken);
+      await SendNotFoundAsync(ct);
       return;
     }
 
     var query = new GetContributorQuery(request.ContributorId);
 
-    var queryResult = await _mediator.Send(query);
+    var queryResult = await mediator.Send(query, ct);
 
     if (queryResult.Status == ResultStatus.NotFound)
     {
-      await SendNotFoundAsync(cancellationToken);
+      await SendNotFoundAsync(ct);
       return;
     }
 

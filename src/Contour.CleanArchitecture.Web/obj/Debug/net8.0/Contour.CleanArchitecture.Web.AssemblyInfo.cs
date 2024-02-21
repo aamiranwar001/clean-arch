@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Contour.CleanArchitecture.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+98ee81268e7bad5c829eb5e561ffcd81ce420629")]
 [assembly: System.Reflection.AssemblyProductAttribute("Contour.CleanArchitecture.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Contour.CleanArchitecture.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

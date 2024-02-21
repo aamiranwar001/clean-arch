@@ -1,13 +1,15 @@
 ﻿using System.Reflection;
 using Ardalis.SharedKernel;
 using Autofac;
-using Contour.CleanArchitecture.Core.ContributorAggregate;
 using Contour.CleanArchitecture.Core.Interfaces;
+using Contour.CleanArchitecture.Core.ProjectAggregate;
 using Contour.CleanArchitecture.Infrastructure.Data;
 using Contour.CleanArchitecture.Infrastructure.Data.Queries;
 using Contour.CleanArchitecture.Infrastructure.Email;
 using Contour.CleanArchitecture.UseCases.Contributors.Create;
 using Contour.CleanArchitecture.UseCases.Contributors.List;
+using Contour.CleanArchitecture.UseCases.Projects.ListIncompleteItems;
+using Contour.CleanArchitecture.UseCases.Projects.ListShallow;
 using MediatR;
 using MediatR.Pipeline;
 using Module = Autofac.Module;
@@ -21,7 +23,7 @@ namespace Contour.CleanArchitecture.Infrastructure;
 public class AutofacInfrastructureModule : Module
 {
   private readonly bool _isDevelopment = false;
-  private readonly List<Assembly> _assemblies = new List<Assembly>();
+  private readonly List<Assembly> _assemblies = [];
 
   public AutofacInfrastructureModule(bool isDevelopment, Assembly? callingAssembly = null)
   {
@@ -40,7 +42,7 @@ public class AutofacInfrastructureModule : Module
   private void LoadAssemblies()
   {
     // TODO: Replace these types with any type in the appropriate assembly/project
-    var coreAssembly = Assembly.GetAssembly(typeof(Contributor));
+    var coreAssembly = Assembly.GetAssembly(typeof(Project));
     var infrastructureAssembly = Assembly.GetAssembly(typeof(AutofacInfrastructureModule));
     var useCasesAssembly = Assembly.GetAssembly(typeof(CreateContributorCommand));
 
@@ -61,7 +63,6 @@ public class AutofacInfrastructureModule : Module
       RegisterProductionOnlyDependencies(builder);
     }
     RegisterEF(builder);
-    RegisterQueries(builder);
     RegisterMediatR(builder);
   }
 
@@ -70,13 +71,6 @@ public class AutofacInfrastructureModule : Module
     builder.RegisterGeneric(typeof(EfRepository<>))
       .As(typeof(IRepository<>))
       .As(typeof(IReadRepository<>))
-      .InstancePerLifetimeScope();
-  }
-
-  private void RegisterQueries(ContainerBuilder builder)
-  {
-    builder.RegisterType<ListContributorsQueryService>()
-      .As<IListContributorsQueryService>()
       .InstancePerLifetimeScope();
   }
 
@@ -108,7 +102,7 @@ public class AutofacInfrastructureModule : Module
     foreach (var mediatrOpenType in mediatrOpenTypes)
     {
       builder
-        .RegisterAssemblyTypes(_assemblies.ToArray())
+        .RegisterAssemblyTypes([.. _assemblies])
         .AsClosedTypesOf(mediatrOpenType)
         .AsImplementedInterfaces();
     }
@@ -117,18 +111,43 @@ public class AutofacInfrastructureModule : Module
   private void RegisterDevelopmentOnlyDependencies(ContainerBuilder builder)
   {
     // NOTE: Add any development only services here
-    builder.RegisterType<FakeEmailSender>().As<IEmailSender>()
+    //builder.RegisterType<FakeEmailSender>().As<IEmailSender>()
+    //  .InstancePerLifetimeScope();
+
+    // NOTE: Add any production only (real) services here
+    builder.RegisterType<SmtpEmailSender>().As<IEmailSender>()
       .InstancePerLifetimeScope();
 
-    //builder.RegisterType<FakeListContributorsQueryService>()
-    //  .As<IListContributorsQueryService>()
-    //  .InstancePerLifetimeScope();
+
+    builder.RegisterType<FakeListContributorsQueryService>()
+      .As<IListContributorsQueryService>()
+      .InstancePerLifetimeScope();
+
+    builder.RegisterType<FakeListIncompleteItemsQueryService>()
+      .As<IListIncompleteItemsQueryService>()
+      .InstancePerLifetimeScope();
+
+    builder.RegisterType<FakeListProjectsShallowQueryService>()
+      .As<IListProjectsShallowQueryService>()
+      .InstancePerLifetimeScope();
   }
 
   private void RegisterProductionOnlyDependencies(ContainerBuilder builder)
   {
     // NOTE: Add any production only (real) services here
     builder.RegisterType<SmtpEmailSender>().As<IEmailSender>()
+      .InstancePerLifetimeScope();
+
+    builder.RegisterType<ListContributorsQueryService>()
+      .As<IListContributorsQueryService>()
+      .InstancePerLifetimeScope();
+
+    builder.RegisterType<ListIncompleteItemsQueryService>()
+      .As<IListIncompleteItemsQueryService>()
+      .InstancePerLifetimeScope();
+
+    builder.RegisterType<ListProjectsShallowQueryService>()
+      .As<IListProjectsShallowQueryService>()
       .InstancePerLifetimeScope();
   }
 }

@@ -7,6 +7,7 @@ using Contour.CleanArchitecture.Infrastructure;
 using Contour.CleanArchitecture.Infrastructure.Data;
 using FastEndpoints;
 using FastEndpoints.Swagger;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,8 +23,8 @@ builder.Services.Configure<CookiePolicyOptions>(options =>
 });
 
 string? connectionString = builder.Configuration.GetConnectionString("SqliteConnection");
-Guard.Against.Null(connectionString);
-builder.Services.AddApplicationDbContext(connectionString);
+builder.Services.AddDbContext<AppDbContext>(options =>
+          options.UseSqlite(connectionString));
 
 builder.Services.AddFastEndpoints();
 builder.Services.SwaggerDocument(o =>

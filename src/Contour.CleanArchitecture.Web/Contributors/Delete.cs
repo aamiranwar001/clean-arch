@@ -12,8 +12,7 @@ namespace Contour.CleanArchitecture.Web.ContributorEndpoints;
 /// <remarks>
 /// Delete a Contributor by providing a valid integer id.
 /// </remarks>
-public class Delete(IMediator _mediator)
-  : Endpoint<DeleteContributorRequest>
+public class Delete(IMediator mediator) : Endpoint<DeleteContributorRequest>
 {
   public override void Configure()
   {
@@ -21,13 +20,11 @@ public class Delete(IMediator _mediator)
     AllowAnonymous();
   }
 
-  public override async Task HandleAsync(
-    DeleteContributorRequest request,
-    CancellationToken cancellationToken)
+  public override async Task HandleAsync(DeleteContributorRequest request, CancellationToken cancellationToken)
   {
     var command = new DeleteContributorCommand(request.ContributorId);
 
-    var result = await _mediator.Send(command);
+    var result = await mediator.Send(command);
 
     if (result.Status == ResultStatus.NotFound)
     {
@@ -38,7 +35,7 @@ public class Delete(IMediator _mediator)
     if (result.IsSuccess)
     {
       await SendNoContentAsync(cancellationToken);
-    };
+    }
     // TODO: Handle other issues as needed
   }
 }

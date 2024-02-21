@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Contour.CleanArchitecture.IntegrationTests
-build_property.ProjectDir = D:\clean-arch\Contour.CleanArchitecture\tests\Contour.CleanArchitecture.IntegrationTests\
+build_property.ProjectDir = d:\clean-arch\Contour.CleanArchitecture\tests\Contour.CleanArchitecture.IntegrationTests\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

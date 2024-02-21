@@ -1,20 +1,14 @@
 ﻿using System.Reflection;
 using Ardalis.SharedKernel;
 using Contour.CleanArchitecture.Core.ContributorAggregate;
+using Contour.CleanArchitecture.Core.ProjectAggregate;
 using Microsoft.EntityFrameworkCore;
 
 namespace Contour.CleanArchitecture.Infrastructure.Data;
-public class AppDbContext : DbContext
+public class AppDbContext(DbContextOptions<AppDbContext> options, IDomainEventDispatcher? dispatcher) : DbContext(options)
 {
-  private readonly IDomainEventDispatcher? _dispatcher;
-
-  public AppDbContext(DbContextOptions<AppDbContext> options,
-    IDomainEventDispatcher? dispatcher)
-      : base(options)
-  {
-    _dispatcher = dispatcher;
-  }
-
+  public DbSet<ToDoItem> ToDoItems => Set<ToDoItem>();
+  public DbSet<Project> Projects => Set<Project>();
   public DbSet<Contributor> Contributors => Set<Contributor>();
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -28,7 +22,7 @@ public class AppDbContext : DbContext
     int result = await base.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
 
     // ignore events if no dispatcher provided
-    if (_dispatcher == null) return result;
+    if (dispatcher == null) return result;
 
     // dispatch events only if save was successful
     var entitiesWithEvents = ChangeTracker.Entries<EntityBase>()
@@ -36,7 +30,7 @@ public class AppDbContext : DbContext
         .Where(e => e.DomainEvents.Any())
         .ToArray();
 
-    await _dispatcher.DispatchAndClearEvents(entitiesWithEvents);
+    await dispatcher.DispatchAndClearEvents(entitiesWithEvents);
 
     return result;
   }

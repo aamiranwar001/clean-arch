@@ -11,8 +11,7 @@ namespace Contour.CleanArchitecture.Web.ContributorEndpoints;
 /// <remarks>
 /// Creates a new Contributor given a name.
 /// </remarks>
-public class Create(IMediator _mediator)
-  : Endpoint<CreateContributorRequest, CreateContributorResponse>
+public class Create(IMediator mediator) : Endpoint<CreateContributorRequest, CreateContributorResponse>
 {
   public override void Configure()
   {
@@ -27,11 +26,9 @@ public class Create(IMediator _mediator)
     });
   }
 
-  public override async Task HandleAsync(
-    CreateContributorRequest request,
-    CancellationToken cancellationToken)
+  public override async Task HandleAsync(CreateContributorRequest request, CancellationToken cancellationToken)
   {
-    var result = await _mediator.Send(new CreateContributorCommand(request.Name!));
+    var result = await mediator.Send(new CreateContributorCommand(request.Name!));
 
     if (result.IsSuccess)
     {
