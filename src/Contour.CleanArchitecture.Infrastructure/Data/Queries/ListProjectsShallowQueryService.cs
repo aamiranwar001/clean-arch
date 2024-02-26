@@ -8,7 +8,7 @@ public class ListProjectsShallowQueryService(AppDbContext _db) : IListProjectsSh
 {
   public async Task<IEnumerable<ProjectDTO>> ListAsync()
   {
-    var result = await _db.Projects.FromSqlRaw("SELECT Id, Name FROM Projects")
+    var result = await _db.Projects.FromSqlRaw("SELECT Id, Name, Priority FROM Projects")
       .Select(x => new ProjectDTO(x.Id, x.Name, x.Status.ToString()))
       .ToListAsync();
 
