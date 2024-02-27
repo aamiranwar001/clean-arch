@@ -1,4 +1,4 @@
-﻿using Contour.CleanArchitecture.Core.Interfaces;
+﻿using Contour.CleanArchitecture.Domain.Interfaces;
 using Microsoft.Extensions.Logging;
 
 namespace Contour.CleanArchitecture.Infrastructure.Email;

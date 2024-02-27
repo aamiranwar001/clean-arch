@@ -2,8 +2,8 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Ardalis.Specification;
-using Contour.CleanArchitecture.Core.ProjectAggregate;
-using Contour.CleanArchitecture.Core.Services;
+using Contour.CleanArchitecture.Domain.ProjectAggregate;
+using Contour.CleanArchitecture.Domain.Services;
 using Contour.CleanArchitecture.SharedKernel.Interfaces;
 using Moq;
 using Xunit;

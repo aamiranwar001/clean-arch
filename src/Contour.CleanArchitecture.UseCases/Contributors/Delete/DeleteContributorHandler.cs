@@ -1,6 +1,6 @@
 ﻿using Ardalis.Result;
 using Ardalis.SharedKernel;
-using Contour.CleanArchitecture.Core.Interfaces;
+using Contour.CleanArchitecture.Domain.Interfaces;
 
 namespace Contour.CleanArchitecture.UseCases.Contributors.Delete;
 

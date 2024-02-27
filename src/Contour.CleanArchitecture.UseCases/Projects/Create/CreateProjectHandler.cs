@@ -1,6 +1,6 @@
 ﻿using Ardalis.Result;
 using Ardalis.SharedKernel;
-using Contour.CleanArchitecture.Core.ProjectAggregate;
+using Contour.CleanArchitecture.Domain.ProjectAggregate;
 
 namespace Contour.CleanArchitecture.UseCases.Projects.Create;
 

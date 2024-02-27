@@ -2,7 +2,7 @@
 using Ardalis.ListStartupServices;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using Contour.CleanArchitecture.Core;
+using Contour.CleanArchitecture.Domain;
 using Contour.CleanArchitecture.Infrastructure;
 using Contour.CleanArchitecture.Infrastructure.Data;
 using FastEndpoints;

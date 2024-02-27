@@ -1,4 +1,4 @@
-﻿using Contour.CleanArchitecture.Core.ContributorAggregate;
+﻿using Contour.CleanArchitecture.Domain.ContributorAggregate;
 using Xunit;
 
 namespace Contour.CleanArchitecture.UnitTests.Core.ContributorAggregate;

@@ -1,4 +1,4 @@
-﻿using Contour.CleanArchitecture.Core.Interfaces;
+﻿using Contour.CleanArchitecture.Domain.Interfaces;
 using MailKit.Net.Smtp;
 using Microsoft.Extensions.Logging;
 using MimeKit;

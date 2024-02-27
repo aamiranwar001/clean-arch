@@ -1,4 +1,4 @@
-﻿using Contour.CleanArchitecture.Core.ProjectAggregate;
+﻿using Contour.CleanArchitecture.Domain.ProjectAggregate;
 using Contour.CleanArchitecture.UseCases.Projects.ListShallow;
 using FastEndpoints;
 using MediatR;

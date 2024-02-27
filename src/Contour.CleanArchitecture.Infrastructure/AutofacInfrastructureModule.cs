@@ -1,8 +1,8 @@
 ﻿using System.Reflection;
 using Ardalis.SharedKernel;
 using Autofac;
-using Contour.CleanArchitecture.Core.Interfaces;
-using Contour.CleanArchitecture.Core.ProjectAggregate;
+using Contour.CleanArchitecture.Domain.Interfaces;
+using Contour.CleanArchitecture.Domain.ProjectAggregate;
 using Contour.CleanArchitecture.Infrastructure.Data;
 using Contour.CleanArchitecture.Infrastructure.Data.Queries;
 using Contour.CleanArchitecture.Infrastructure.Email;

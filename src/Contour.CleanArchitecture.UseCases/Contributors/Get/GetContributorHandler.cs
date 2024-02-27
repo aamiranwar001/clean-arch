@@ -1,7 +1,7 @@
 ﻿using Ardalis.Result;
 using Ardalis.SharedKernel;
-using Contour.CleanArchitecture.Core.ContributorAggregate;
-using Contour.CleanArchitecture.Core.ContributorAggregate.Specifications;
+using Contour.CleanArchitecture.Domain.ContributorAggregate;
+using Contour.CleanArchitecture.Domain.ContributorAggregate.Specifications;
 
 namespace Contour.CleanArchitecture.UseCases.Contributors.Get;
 

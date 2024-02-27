@@ -2,7 +2,7 @@
 using Ardalis.SharedKernel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Contour.CleanArchitecture.Core.ContributorAggregate;
+using Contour.CleanArchitecture.Domain.ContributorAggregate;
 using NSubstitute;
 
 namespace Contour.CleanArchitecture.IntegrationTests.Data;

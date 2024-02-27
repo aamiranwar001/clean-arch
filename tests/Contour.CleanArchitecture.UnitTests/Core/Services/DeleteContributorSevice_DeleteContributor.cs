@@ -1,6 +1,6 @@
 ﻿using Ardalis.SharedKernel;
-using Contour.CleanArchitecture.Core.ContributorAggregate;
-using Contour.CleanArchitecture.Core.Services;
+using Contour.CleanArchitecture.Domain.ContributorAggregate;
+using Contour.CleanArchitecture.Domain.Services;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using NSubstitute;

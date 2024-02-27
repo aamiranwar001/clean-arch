@@ -1,4 +1,4 @@
-using Contour.CleanArchitecture.Core.ProjectAggregate;
+using Contour.CleanArchitecture.Domain.ProjectAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

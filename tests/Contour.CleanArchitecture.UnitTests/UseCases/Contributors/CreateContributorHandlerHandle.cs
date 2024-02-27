@@ -1,5 +1,5 @@
 ﻿using Ardalis.SharedKernel;
-using Contour.CleanArchitecture.Core.ContributorAggregate;
+using Contour.CleanArchitecture.Domain.ContributorAggregate;
 using Contour.CleanArchitecture.UseCases.Contributors.Create;
 using FluentAssertions;
 using NSubstitute;
@@ -15,7 +15,7 @@ public class CreateContributorHandlerHandle
 
   public CreateContributorHandlerHandle()
   {
-      _handler = new CreateContributorHandler(_repository);
+    _handler = new CreateContributorHandler(_repository);
   }
 
   private Contributor CreateContributor()
@@ -30,6 +30,6 @@ public class CreateContributorHandlerHandle
       .Returns(Task.FromResult(CreateContributor()));
     var result = await _handler.Handle(new CreateContributorCommand(_testName), CancellationToken.None);
 
-    result.IsSuccess.Should().BeTrue();    
+    result.IsSuccess.Should().BeTrue();
   }
 }

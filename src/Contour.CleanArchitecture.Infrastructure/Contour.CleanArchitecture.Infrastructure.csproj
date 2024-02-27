@@ -15,7 +15,7 @@
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\Contour.CleanArchitecture.Core\Contour.CleanArchitecture.Core.csproj" />
+    <ProjectReference Include="..\Contour.CleanArchitecture.Domain\Contour.CleanArchitecture.Domain.csproj" />
     <ProjectReference Include="..\Contour.CleanArchitecture.UseCases\Contour.CleanArchitecture.UseCases.csproj" />
   </ItemGroup>
 </Project>

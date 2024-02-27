@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using Ardalis.SharedKernel;
-using Contour.CleanArchitecture.Core.ContributorAggregate;
-using Contour.CleanArchitecture.Core.ProjectAggregate;
+using Contour.CleanArchitecture.Domain.ContributorAggregate;
+using Contour.CleanArchitecture.Domain.ProjectAggregate;
 using Microsoft.EntityFrameworkCore;
 
 namespace Contour.CleanArchitecture.Infrastructure.Data;

@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B31B4797
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contour.CleanArchitecture.Web", "src\Contour.CleanArchitecture.Web\Contour.CleanArchitecture.Web.csproj", "{C9751CB7-4CD6-4633-A99A-4F6ADD525437}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contour.CleanArchitecture.Core", "src\Contour.CleanArchitecture.Core\Contour.CleanArchitecture.Core.csproj", "{4548EB20-1D1B-477B-AF6E-DD55653A6583}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contour.CleanArchitecture.Domain", "src\Contour.CleanArchitecture.Domain\Contour.CleanArchitecture.Domain.csproj", "{4548EB20-1D1B-477B-AF6E-DD55653A6583}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contour.CleanArchitecture.Infrastructure", "src\Contour.CleanArchitecture.Infrastructure\Contour.CleanArchitecture.Infrastructure.csproj", "{220361D6-9C76-4E3F-BD34-3C7B50E2CA4D}"
 EndProject
